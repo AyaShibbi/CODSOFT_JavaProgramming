@@ -28,7 +28,7 @@ public class TestMachine_AyaShibbi {
             }
             
             if(n == 1) //check balance
-                am.checkBalance();
+                System.out.println("Your balance is: " + am.checkBalance());
             else if(n == 2){ //deposit
                 System.out.print("Enter deopsit amount: ");
                 amount = input.nextDouble();
@@ -38,8 +38,12 @@ public class TestMachine_AyaShibbi {
             else if(n == 3){ //withdraw
                 System.out.print("Enter withdrawal amount: ");
                 amount = input.nextDouble();
-                am.withdraw(amount);
-                System.out.println("Withdrawal successful.");
+                if(amount <= am.checkBalance() && amount >= 0){
+                    am.withdraw(amount);
+                    System.out.println("Withdrawal successful.");
+                }
+                else
+                    System.out.println("Not enough funds.");
             }
         }while(n != 4);
         
