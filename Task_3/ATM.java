@@ -8,17 +8,13 @@ package Task_3;
 public class ATM extends BankAccount{
     private double balance = super.accountBalance;
     
-    public void checkBalance(){
-        System.out.println("Your balance is: " + super.accountBalance);
+    public double checkBalance(){
+        return super.accountBalance;
     }
     
     public void withdraw(double amount){
-        if(amount <= super.accountBalance && amount >= 0){
-            balance -= amount;
-            super.setAccountBalance(balance);
-        }
-        else
-            System.out.println("Not enough funds.");
+        balance -= amount;
+        super.setAccountBalance(balance);
     }
     
     public void deposit(double amount){
